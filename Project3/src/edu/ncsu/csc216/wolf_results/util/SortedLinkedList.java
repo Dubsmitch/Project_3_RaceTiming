@@ -1,4 +1,5 @@
 package edu.ncsu.csc216.wolf_results.util;
+
 /**
  * The sorted linked list will be used to hold and sort and curate
  * race results.
