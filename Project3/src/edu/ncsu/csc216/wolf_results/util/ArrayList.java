@@ -51,6 +51,7 @@ public class ArrayList implements List  {
      *
      * @return true if this list contains no elements
      */
+	@Override
     public boolean isEmpty() {
     	if (this.size == 0) {
     		return true;
@@ -67,6 +68,7 @@ public class ArrayList implements List  {
      * @param o element whose presence in this list is to be tested
      * @return true if this list contains the specified element
      */
+	@Override
     public boolean contains(Object o) {
     	//errr not sure what in the world to do with this
     	return false;
@@ -125,6 +127,7 @@ public class ArrayList implements List  {
      * @throws IndexOutOfBoundsException if the index is out of range (index < 0
      *             || index >= size())
      */
+    @Override
     public Object get(int index) {
     	Object e = null;
     	return e;
@@ -145,6 +148,7 @@ public class ArrayList implements List  {
      * @throws IndexOutOfBoundsException if the index is out of range (index < 0
      *             || index > size())
      */
+    @Override
     public void add(int index, Object element) {
     	//make this
     }
@@ -159,6 +163,7 @@ public class ArrayList implements List  {
      * @throws IndexOutOfBoundsException if the index is out of range (index < 0
      *             || index >= size())
      */
+    @Override
     public Object remove(int index) {
     	Object e = null;
     	return e;
@@ -174,6 +179,7 @@ public class ArrayList implements List  {
      * @return the index of the first occurrence of the specified element in
      *         this list, or -1 if this list does not contain the element
      */
+    @Override
     public int indexOf(Object o) {
     	return 0;
     }
