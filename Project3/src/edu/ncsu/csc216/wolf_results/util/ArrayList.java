@@ -117,6 +117,65 @@ public class ArrayList implements List  {
     	//will need to change this to true
     	return false;
     }
+    /**
+     * Returns the element at the specified position in this list.
+     *
+     * @param index index of the element to return
+     * @return the element at the specified position in this list
+     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
+     *             || index >= size())
+     */
+    public Object get(int index) {
+    	Object e = null;
+    	return e;
+    }
     
+    /**
+     * Inserts the specified element at the specified position in this list
+     * (optional operation). Shifts the element currently at that position (if
+     * any) and any subsequent elements to the right (adds one to their
+     * indices).
+     *
+     * @param index index at which the specified element is to be inserted
+     * @param element element to be inserted
+     * @throws NullPointerException if the specified element is null and this
+     *             list does not permit null elements
+     * @throws IllegalArgumentException if some property of the specified
+     *             element prevents it from being added to this list
+     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
+     *             || index > size())
+     */
+    public void add(int index, Object element) {
+    	//make this
+    }
+
+    /**
+     * Removes the element at the specified position in this list (optional
+     * operation). Shifts any subsequent elements to the left (subtracts one
+     * from their indices). Returns the element that was removed from the list.
+     *
+     * @param index the index of the element to be removed
+     * @return the element previously at the specified position
+     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
+     *             || index >= size())
+     */
+    public Object remove(int index) {
+    	Object e = null;
+    	return e;
+    }
+
+    /**
+     * Returns the index of the first occurrence of the specified element in
+     * this list, or -1 if this list does not contain the element. More
+     * formally, returns the lowest index i such that (o==null ? get(i)==null :
+     * o.equals(get(i))), or -1 if there is no such index.
+     *
+     * @param o element to search for
+     * @return the index of the first occurrence of the specified element in
+     *         this list, or -1 if this list does not contain the element
+     */
+    public int indexOf(Object o) {
+    	return 0;
+    }
     
 }
