@@ -141,7 +141,6 @@ public interface List {
      *             || index >= size())
      */
     Object remove(int index);
-
     // Search Operations
 
     /**
