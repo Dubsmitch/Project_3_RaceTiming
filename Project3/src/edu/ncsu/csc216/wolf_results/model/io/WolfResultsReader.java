@@ -3,7 +3,7 @@ package edu.ncsu.csc216.wolf_results.model.io;
 import edu.ncsu.csc216.wolf_results.race_results.RaceList;
 
 /**
- * reads a race file from a specificed filename
+ * reads a race file from a specified filename
  * 
  * @author William
  *
@@ -24,7 +24,7 @@ public class WolfResultsReader {
 	 * @return RaceList
 	 * 		the races and results from the file 
 	 */
-	public RaceList readRaceListFile(String filename) {
+	public static RaceList readRaceListFile(String filename) {
 		return null;
 	}
 }
