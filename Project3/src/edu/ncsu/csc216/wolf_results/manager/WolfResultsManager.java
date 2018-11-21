@@ -11,7 +11,7 @@ import edu.ncsu.csc216.wolf_results.race_results.RaceList;
  * @author William
  *
  */
-public class WolfResultsManager {
+public class WolfResultsManager extends Observable {
 	/** an instance of itself **/
 	private WolfResultsManager instance;
 	/** an instance of the race list **/
@@ -57,7 +57,7 @@ public class WolfResultsManager {
 	/**
 	 * sets if a file has been changed or not
 	 */
-	private void setChanged() {
+	private void setChanged(boolean changed) {
 		//create this
 	}
 	/**
