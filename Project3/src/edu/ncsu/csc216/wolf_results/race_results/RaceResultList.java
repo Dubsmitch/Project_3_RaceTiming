@@ -66,7 +66,7 @@ public class RaceResultList {
 	 * @return String[][]
 	 * 		the array of results
 	 */
-	public String[][] getResultsArray(){
+	public String[][] getResultsAsArray(){
 		return null;
 	}
 	/**
