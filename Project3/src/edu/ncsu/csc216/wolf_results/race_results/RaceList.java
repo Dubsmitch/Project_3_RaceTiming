@@ -2,6 +2,7 @@ package edu.ncsu.csc216.wolf_results.race_results;
 
 import java.time.LocalDate;
 import java.util.Observable;
+import java.util.Observer;
 
 import edu.ncsu.csc216.wolf_results.util.ArrayList;
 /**
@@ -12,7 +13,7 @@ import edu.ncsu.csc216.wolf_results.util.ArrayList;
  * @author William
  *
  */
-public class RaceList extends Observable{
+public class RaceList extends Observable implements Observer{
 	/** a list in which to hold results **/
 	private ArrayList races;
 	/**
@@ -83,6 +84,15 @@ public class RaceList extends Observable{
 	 */
 	public void update(Observable o, Object args) {
 		//no idea how to do this
+	}
+	
+	public void addRace(String name, double distance, LocalDate date, String location, RaceResultList results) {
+
+		//Other code as appropriate
+		Race race = new Race(name, distance,date, location, results);
+		race.addObserver(this); //Adds the current object as an Observer
+		//Other code as appropriate
+
 	}
 	
 }

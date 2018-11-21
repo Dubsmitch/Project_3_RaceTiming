@@ -169,5 +169,10 @@ public class Race {
 	public RaceResultList filter(int minAge, int maxAge, String minPace, String maxPace) {
 		return null;
 	}
+	
+	public void addObserver(RaceList raceList) {
+		// TODO Auto-generated method stub
+		
+	}
 	 
 }
