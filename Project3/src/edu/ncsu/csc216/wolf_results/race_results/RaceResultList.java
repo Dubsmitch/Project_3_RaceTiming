@@ -41,6 +41,17 @@ public class RaceResultList {
 		//make a race
 	}
 	/**
+	 * returns a result at a particular index
+	 * @param idx
+	 * 		index from which to get result
+	 * @return IndividualResult
+	 * 		the returned result
+	 */
+	public IndividualResult getResult (int idx) {
+		return null;
+	}
+	
+	/**
 	 * the size of the results list
 	 * @return int
 	 * 		the size of the list
