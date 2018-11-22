@@ -170,7 +170,7 @@ public class Race {
 		return null;
 	}
 	
-	public void addObserver(RaceList raceList) {
+	public void addObserver(Race race) {
 		// TODO Auto-generated method stub
 		
 	}
