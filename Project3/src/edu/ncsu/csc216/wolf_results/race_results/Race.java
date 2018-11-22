@@ -1,6 +1,8 @@
 package edu.ncsu.csc216.wolf_results.race_results;
 
 import java.time.LocalDate;
+import java.util.Observable;
+//import java.util.Observer;
 
 /**
  * creates a race object that knows its name,
@@ -9,7 +11,7 @@ import java.time.LocalDate;
  * @author William
  *
  */
-public class Race {
+public class Race extends Observable {
 	/** the name of the race **/
 	private String name;
 	/** the distance of the race **/
