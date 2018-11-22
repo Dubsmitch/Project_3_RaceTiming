@@ -44,6 +44,32 @@ public class RaceTime {
 		//this.seconds = 0;
 	}
 	/**
+	 * returns the hours of the result
+	 * @return int
+	 * 		the time in hours
+	 */
+	public int getHours() {
+		return 0;
+	}
+	/**
+	 * returns the seconds of the result
+	 * @results int
+	 * 		the seconds place in the result time
+	 */
+	public int getSeconds() {
+		return 0;
+	}
+	/**
+	 * returns the minuntes of the result
+	 * 
+	 * @return int
+	 * 		the minutes place of the time of the result
+	 */
+	public int getMinutes() {
+		return 0;
+	}
+	
+	/**
 	 * returns the time in seconds
 	 * @return int
 	 * 		the time in seconds
