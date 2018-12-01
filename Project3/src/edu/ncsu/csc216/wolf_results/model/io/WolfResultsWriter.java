@@ -24,7 +24,7 @@ public class WolfResultsWriter {
 	 * 		the file name to save to
 	 * @param list
 	 * 		the list to be saved
-
+	 *
 	 */
 	public static void writeRaceFile(String filename, RaceList list) {
 		try {
