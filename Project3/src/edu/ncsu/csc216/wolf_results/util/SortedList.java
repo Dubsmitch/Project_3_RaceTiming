@@ -92,6 +92,7 @@ public interface SortedList<E extends Comparable<E>> {
      * Removes the element at the specified position in this list. Shifts any
      * subsequent elements to the left (subtracts one from their indices).
      * Returns the element that was removed from the list.
+     * 
      *
      * @param index the index of the element to be removed
      * @return the element previously at the specified position
