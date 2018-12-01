@@ -9,7 +9,9 @@ import org.junit.Test;
 import edu.ncsu.csc216.wolf_results.util.RaceTime;
 
 public class RaceListTest {
-
+	/**
+	 * tests the constructor and add
+	 */
 	@Test
 	public void test() {
 		RaceList list = new RaceList();
