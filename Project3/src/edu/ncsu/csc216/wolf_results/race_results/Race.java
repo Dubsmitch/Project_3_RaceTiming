@@ -141,11 +141,12 @@ public class Race extends Observable {
 	 * sets the distance of the race
 	 * 
 	 * @param newDistance
-	 * 		the new distance to set the race to
+	 * 		the new distance to set the race too
 	 */
 	public void setDistance (double newDistance) {
 		this.distance = newDistance;
 		setChanged();
+		
 		notifyObservers(this);
 	}
 	
