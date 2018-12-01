@@ -24,6 +24,16 @@ public class WolfResultsManager extends Observable implements Observer {
 	private String filename;
 	/** if the file has been changed or not **/
 	private boolean changed;
+
+	/**
+	 * calls getInstance to construct an instance
+	 * of itself
+	 */
+	private WolfResultsManager() {
+		list = new RaceList();
+		list.addObserver(this);
+	}
+	
 	/**
 	 * creates an instance if there is none, else returns
 	 * the one that exists
@@ -35,18 +45,9 @@ public class WolfResultsManager extends Observable implements Observer {
 	 */
 	public static WolfResultsManager getInstance() {
 		if (instance == null) {
-			WolfResultsManager instance = new WolfResultsManager();
+			instance = new WolfResultsManager();
 		}
 		return instance;
-	}
-	/**
-	 * calls getInstance to construct an instance
-	 * of itself
-	 */
-	private WolfResultsManager() {
-		getInstance();
-		RaceList list = new RaceList();
-		list.addObserver(this);
 	}
 	/**
 	 * creates a new list
