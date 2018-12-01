@@ -135,7 +135,7 @@ public class Race extends Observable {
 		//Race race, String name, int age, RaceTime time
 		IndividualResult a = result;
 		results.addResult(result);
-		this.addObserver((Observer) a);
+		//this.addObserver((Observer) a);
 	}
 	/**
 	 * sets the distance of the race
