@@ -81,7 +81,7 @@ public class RaceResultList {
 			resultsArray[i][0] = s.getName();
 			resultsArray[i][1] = Integer.toString(s.getAge());
 			resultsArray[i][2] = s.getTime().toString();
-			resultsArray[i][2] = s.getPace().toString();
+			resultsArray[i][3] = s.getPace().toString();
 		}
 		return resultsArray;
 	}
@@ -113,12 +113,13 @@ public class RaceResultList {
 		RaceTime maxPaces = new RaceTime(maxPace);
 		RaceResultList bothFilters = new RaceResultList();
 		for (int i = 0; i < ageHolder.size(); i++) {
-			IndividualResult a = results.get(i);
+			IndividualResult a = ageHolder.getResult(i);
 			if (a.getPace().getSeconds() >= minPaces.getTimeInSeconds() &&
 					a.getPace().getTimeInSeconds() <= maxPaces.getTimeInSeconds()) {
 				bothFilters.addResult(a);
 			}
 		}
-		
-		return bothFilters;	}
+
+		return bothFilters;	
+		}
 }
