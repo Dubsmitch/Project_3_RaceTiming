@@ -13,7 +13,7 @@ import edu.ncsu.csc216.wolf_results.util.ArrayList;
  * @author William
  *
  */
-public class RaceList extends Observable implements Observer{
+public class RaceList extends Observable implements Observer {
 	/** a list in which to hold results **/
 	private ArrayList races;
 	/**

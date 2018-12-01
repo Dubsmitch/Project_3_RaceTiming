@@ -116,7 +116,7 @@ public class RaceTime {
 	}
 	/**
 	 * returns the seconds of the result
-	 * @results int
+	 * @return int
 	 * 		the seconds place in the result time
 	 */
 	public int getSeconds() {

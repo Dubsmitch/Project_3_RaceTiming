@@ -7,7 +7,11 @@ import java.time.LocalDate;
 import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_results.util.RaceTime;
-
+/**
+ * tests the raceresultlist class
+ * @author William
+ *
+ */
 public class RaceResultListTest {
 	/**
 	 * tests the constructor and the add methods
@@ -20,7 +24,7 @@ public class RaceResultListTest {
 		Race race = new Race("5 mile", 5, now, "Here");
 		
 		RaceTime min25 = new RaceTime("0:25:25");
-		IndividualResult dubsRes= new IndividualResult(race, "Dubs", 27, min25);
+		IndividualResult dubsRes = new IndividualResult(race, "Dubs", 27, min25);
 
 		
 		list.addResult(dubsRes);
@@ -45,7 +49,7 @@ public class RaceResultListTest {
 		Race race = new Race("5 mile", 5, now, "Here");
 		
 		RaceTime min25 = new RaceTime("0:25:25");
-		IndividualResult dubsRes= new IndividualResult(race, "Dubs", 27, min25);
+		IndividualResult dubsRes = new IndividualResult(race, "Dubs", 27, min25);
 
 		
 		list.addResult(dubsRes);
@@ -67,7 +71,7 @@ public class RaceResultListTest {
 		Race race = new Race("5 mile", 5, now, "Here");
 		
 		RaceTime min25 = new RaceTime("0:25:25");
-		IndividualResult dubsRes= new IndividualResult(race, "Dubs", 27, min25);
+		IndividualResult dubsRes = new IndividualResult(race, "Dubs", 27, min25);
 
 		
 		list.addResult(dubsRes);

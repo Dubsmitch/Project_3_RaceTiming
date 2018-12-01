@@ -5,7 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_results.race_results.RaceList;
-
+/**
+ * tests the class that writes a file
+ * @author William
+ *
+ */
 public class WolfResultsWriterTest {
 	/**
 	 * tests writing a file

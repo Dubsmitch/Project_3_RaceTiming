@@ -7,7 +7,16 @@ package edu.ncsu.csc216.wolf_results.race_results;
 
 import edu.ncsu.csc216.wolf_results.util.RaceTime;
 import edu.ncsu.csc216.wolf_results.util.SortedLinkedList;
-
+/**
+ * creates a list of results that can be used by the 
+ * race to store infomation about results
+ * 
+ * manages itself and knows its contents
+ * 
+ * it is a sortedLinkedList of inidividual results
+ * @author William
+ *
+ */
 public class RaceResultList {
 	/** the sortedLinkedList that will hold the results **/
 	private SortedLinkedList<IndividualResult> results;

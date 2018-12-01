@@ -10,7 +10,7 @@ import edu.ncsu.csc216.wolf_results.util.RaceTime;
  * @author William
  *
  */
-public class IndividualResult extends Observable implements Comparable<IndividualResult>, Observer{
+public class IndividualResult extends Observable implements Comparable<IndividualResult>, Observer {
 
 	/** the name of the racer **/
 	private String name;
@@ -49,14 +49,14 @@ public class IndividualResult extends Observable implements Comparable<Individua
 			throw new IllegalArgumentException();
 		}
 		this.race = race;
-		this.name= name.trim();
+		this.name = name.trim();
 		this.age = age;
 		this.time = time;
 		
 		//finding pace//
 		//1st find the seconds and divide that by distance//
 		double seconds = this.time.getTimeInSeconds();
-		double paceTime = seconds/this.race.getDistance();
+		double paceTime = seconds / this.race.getDistance();
 		//cast back to an int
 		int paceTimeInt = (int) paceTime;
 		//2nd find out how many hours there are//
@@ -129,6 +129,8 @@ public class IndividualResult extends Observable implements Comparable<Individua
 	/**
 	 * compares one individual result to another result
 	 * 
+	 * @param that
+	 * 		the individualresult to be compared to
 	 * @return int
 	 * 		if the result is greater then 1 is returned, if the other result is equal to the comparing result
 	 * 		then 0 is returned, else -1
@@ -156,10 +158,10 @@ public class IndividualResult extends Observable implements Comparable<Individua
 	 */
 	public void update(Observable thing, Object o) {
 		
-		Race race = (Race) thing;
-		double newDistance = race.getDistance();
+		Race trace = (Race) thing;
+		double newDistance = trace.getDistance();
 		double seconds = this.time.getTimeInSeconds();
-		double paceTime = seconds/newDistance;
+		double paceTime = seconds / newDistance;
 		//cast back to an int
 		int paceTimeInt = (int) paceTime;
 		//2nd find out how many hours there are//

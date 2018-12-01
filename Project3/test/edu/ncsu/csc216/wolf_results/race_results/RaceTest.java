@@ -7,7 +7,11 @@ import java.time.LocalDate;
 import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_results.util.RaceTime;
-
+/**
+ * tests the race class
+ * @author William
+ *
+ */
 public class RaceTest {
 	/**
 	 * tests the constructor
@@ -20,7 +24,7 @@ public class RaceTest {
 		Race race = new Race("5 mile", 5, now, "Here");
 		
 		RaceTime min25 = new RaceTime("0:25:25");
-		IndividualResult dubsRes= new IndividualResult(race, "Dubs", 27, min25);
+		IndividualResult dubsRes = new IndividualResult(race, "Dubs", 27, min25);
 
 		race.addIndividualResult(dubsRes);
 		
@@ -41,10 +45,10 @@ public class RaceTest {
 		racePlus.setDistance(10);
 		assertEquals(racePlus.getDistance(), 10, .01);
 		
-		IndividualResult a= new IndividualResult(race, "Dubs", 26, min25);
+		IndividualResult a = new IndividualResult(race, "Dubs", 26, min25);
 		
-		IndividualResult b= new IndividualResult(race, "Dubs", 20, min25);
-		IndividualResult d= new IndividualResult(race, "Dubs", 21, min25);
+		IndividualResult b = new IndividualResult(race, "Dubs", 20, min25);
+		IndividualResult d = new IndividualResult(race, "Dubs", 21, min25);
 		list.addResult(a);
 		list.addResult(b);
 		list.addResult(d);

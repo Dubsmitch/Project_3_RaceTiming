@@ -3,17 +3,25 @@ package edu.ncsu.csc216.wolf_results.util;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
+/**
+ * tests the sorted linked list class
+ * @author William
+ *
+ */
 public class SortedLinkedListTest {
-
+	/**
+	 * tests the constructor
+	 */
 	@Test
 	public void testConstructor() {
-		SortedLinkedList<String> SL = new SortedLinkedList<String>();
+		SortedLinkedList<String> sL = new SortedLinkedList<String>();
 		
-		assertEquals(SL.size(), 0);
-		assertTrue(SL.isEmpty());
+		assertEquals(sL.size(), 0);
+		assertTrue(sL.isEmpty());
 	}
-	
+	/**
+	 * tests the add function
+	 */
 	@Test
 	public void testAdd() {
 		SortedLinkedList<Integer> intL = new SortedLinkedList<Integer>();
@@ -79,7 +87,9 @@ public class SortedLinkedListTest {
 		assertEquals(stringL.get(3), dd);
 
 	}
-	
+	/**
+	 * tests the remove function
+	 */
 	@Test
 	public void testRemove() {
 		SortedLinkedList<Integer> intL = new SortedLinkedList<Integer>();
@@ -137,7 +147,9 @@ public class SortedLinkedListTest {
 		
 		
 	}
-	
+	/**
+	 * tests getting the index of an object
+	 */
 	@Test
 	public void testIndexOf() {
 		SortedLinkedList<Integer> intL = new SortedLinkedList<Integer>();

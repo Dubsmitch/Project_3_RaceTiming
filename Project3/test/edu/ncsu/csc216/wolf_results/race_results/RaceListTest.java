@@ -7,7 +7,11 @@ import java.time.LocalDate;
 import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_results.util.RaceTime;
-
+/**
+ * tests the racelist class
+ * @author William
+ *
+ */
 public class RaceListTest {
 	/**
 	 * tests the constructor and add
@@ -21,7 +25,7 @@ public class RaceListTest {
 		Race race = new Race("5 mile", 5, now, "Here");
 		
 		RaceTime min25 = new RaceTime("0:25:25");
-		IndividualResult dubsRes= new IndividualResult(race, "Dubs", 27, min25);
+		IndividualResult dubsRes = new IndividualResult(race, "Dubs", 27, min25);
 		
 		race.addIndividualResult(dubsRes);
 		assertEquals(race.getResults().getResult(0), dubsRes);
@@ -49,7 +53,7 @@ public class RaceListTest {
 		Race race = new Race("5 mile", 5, now, "Here");
 		
 		RaceTime min25 = new RaceTime("0:25:25");
-		IndividualResult dubsRes= new IndividualResult(race, "Dubs", 27, min25);
+		IndividualResult dubsRes = new IndividualResult(race, "Dubs", 27, min25);
 		
 		race.addIndividualResult(dubsRes);
 		assertEquals(race.getResults().getResult(0), dubsRes);
@@ -82,7 +86,7 @@ public class RaceListTest {
 		Race race = new Race("5 mile", 5, now, "Here");
 		
 		RaceTime min25 = new RaceTime("0:25:25");
-		IndividualResult dubsRes= new IndividualResult(race, "Dubs", 27, min25);
+		IndividualResult dubsRes = new IndividualResult(race, "Dubs", 27, min25);
 		
 		race.addIndividualResult(dubsRes);
 		assertEquals(race.getResults().getResult(0), dubsRes);
@@ -105,12 +109,15 @@ public class RaceListTest {
 			fail();
 			
 		} catch (IllegalArgumentException e) {
+			assertEquals(list.getRace(0), race);
+
 		}
 		
 		try {
 			list.getRace(2);
 		} catch (IllegalArgumentException e) {
-			
+			assertEquals(list.getRace(0), race);
+
 		}
 	}
 }

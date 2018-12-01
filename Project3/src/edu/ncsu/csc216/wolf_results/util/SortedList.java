@@ -29,6 +29,9 @@ package edu.ncsu.csc216.wolf_results.util;
  * @see AbstractList
  * @see AbstractSequentialList
  * @since 1.2
+ * 
+ * @param E
+ * 		the generic type
  */
 
 public interface SortedList<E extends Comparable<E>> {

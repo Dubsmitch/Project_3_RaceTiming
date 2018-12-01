@@ -3,7 +3,11 @@ package edu.ncsu.csc216.wolf_results.util;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
+/**
+ * tests the custom array list
+ * @author William
+ *
+ */
 public class ArrayListTest {
 	/**
 	 * tests the constructor with and without
@@ -102,7 +106,7 @@ public class ArrayListTest {
 			al.remove(10);
 			fail("shouldn't be able to remove index out of bounds");
 		} catch (IndexOutOfBoundsException e) {
-			
+			assertEquals(al.size(), 0);
 		}
 		
 	}

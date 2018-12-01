@@ -17,6 +17,10 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
 	private int size;
 	//this seems rather sparse. no
 	//size or capacity? humm.
+	/**
+	 * creates a new list with an empty
+	 * first node and a size of 0
+	 */
 	public SortedLinkedList (){
 		head = null;
 		this.size = 0;
@@ -249,7 +253,7 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
     	while (leading.value != e && leading.next != null) {
     		//trailing = leading;
     		leading = leading.next;
-    		index ++;
+    		index++;
     	}
     	if (leading.value == e) {
     		return index;

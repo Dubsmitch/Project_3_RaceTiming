@@ -24,8 +24,8 @@ public class ArrayList implements List  {
 	 * creates an array of capacity 1
 	 */
 	public ArrayList () {
-        Object[] list = new Object[RESIZE];
-        this.list = list;
+        Object[] tlist = new Object[RESIZE];
+        this.list = tlist;
         this.size = 0;
 	}
 	/**
@@ -39,8 +39,8 @@ public class ArrayList implements List  {
 		if (cap == 0) {
 			throw new IllegalArgumentException();
 		}
-		Object[] list = new Object[cap];
-		this.list = list;
+		Object[] tlist = new Object[cap];
+		this.list = tlist;
 		this.size = 0;
 	}
 	

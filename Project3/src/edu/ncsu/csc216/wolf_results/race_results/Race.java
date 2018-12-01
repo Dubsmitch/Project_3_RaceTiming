@@ -3,7 +3,6 @@ package edu.ncsu.csc216.wolf_results.race_results;
 import java.time.LocalDate;
 import java.util.Observable;
 //import java.util.Observer;
-import java.util.Observer;
 
 import edu.ncsu.csc216.wolf_results.util.RaceTime;
 
