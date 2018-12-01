@@ -1,5 +1,15 @@
 package edu.ncsu.csc216.wolf_results.util;
 
+/**
+ * creates and maintains a custom arraylist that knows its size and members
+ * 
+ * can resize, add, edits and removes elements.
+ * 
+ * does not allow duplicate items to be added.
+ * 
+ * @author William
+ *
+ */
 public class ArrayList implements List  {
 	/** serialization UID is long **/
 	private static final long serialVersionUID = 1L;
@@ -231,7 +241,7 @@ public class ArrayList implements List  {
     		//add all of the orginal list's elements to the new list
     		//in order +1 of original index
     		for (int j = 1; j < size; j++) {
-    			list2[j] = list[j-1];
+    			list2[j] = list[j - 1];
     		}
     		
     		//then add all elements back to original list
@@ -274,7 +284,7 @@ public class ArrayList implements List  {
         		//add all of the orginal list's elements to the new list
         		//in order +1 of original index
         		for (int j = 1; j < size; j++) {
-        			list2[j] = list[j-1];
+        			list2[j] = list[j - 1];
         		}
         		
         		//then add all elements back to original list
@@ -323,7 +333,7 @@ public class ArrayList implements List  {
 		
     		//	now switch again
     		for (int i = 0; i < size; i++) {
-    			list[i]=list2[i];
+    			list[i] = list2[i];
     		}
     		list[size - 1] = null;
     		
@@ -346,7 +356,7 @@ public class ArrayList implements List  {
    			
    		//	now switch again
     		for (int i = 0; i < size; i++) {
-    			list[i]=list2[i];
+    			list[i] = list2[i];
     		}
    			list[size - 1] = null;
    			
