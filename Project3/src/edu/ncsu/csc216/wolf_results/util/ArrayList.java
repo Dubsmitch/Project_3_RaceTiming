@@ -105,7 +105,7 @@ public class ArrayList implements List  {
     		throw new NullPointerException();
     	}
     	if(this.contains(o)) {
-    		return false;
+    		throw new IllegalArgumentException();
     	}
     	//check to see if the array size is equal to length
     	//if so double the size
