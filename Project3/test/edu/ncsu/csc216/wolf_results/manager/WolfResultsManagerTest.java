@@ -7,7 +7,7 @@ import org.junit.Test;
 public class WolfResultsManagerTest {
 
 	@Test
-	public void test() {
+	public void testConstrctor() {
 		fail("Not yet implemented");
 	}
 

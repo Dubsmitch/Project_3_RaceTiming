@@ -108,12 +108,8 @@ public class WolfResultsManager extends Observable implements Observer {
 	 * 		the file to be saved to
 	 */
 	public void saveFile(String filename) {
-		try {
-			WolfResultsWriter.writeRaceFile(filename, this.list);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			
+		WolfResultsWriter.writeRaceFile(filename, this.list);
 	}
 	/**
 	 * gets a racelist
