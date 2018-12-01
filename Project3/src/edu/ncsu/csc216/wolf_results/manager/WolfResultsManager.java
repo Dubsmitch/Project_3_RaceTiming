@@ -100,6 +100,7 @@ public class WolfResultsManager extends Observable implements Observer {
 		RaceList list = WolfResultsReader.readRaceListFile(filename);
 		this.list = list;
 		this.filename = filename;
+		notifyObservers(this);
 	}
 	/**
 	 * writes to a file
