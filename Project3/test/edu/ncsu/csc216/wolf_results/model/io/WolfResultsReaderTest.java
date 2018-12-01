@@ -14,12 +14,11 @@ public class WolfResultsReaderTest {
 	public void test() {
 		
 			
-			RaceList list = WolfResultsReader.readRaceListFile("test-files/sample.md");
-			assertEquals(list.getRace(0).getResults().size(), 25);
-			assertEquals(list.getRace(1).getResults().size(), 10);
+		RaceList list = WolfResultsReader.readRaceListFile("test-files/sample.md");
+		assertEquals(list.getRace(0).getResults().size(), 25);
+		assertEquals(list.getRace(1).getResults().size(), 10);
 			
-		
-		
+		RaceList list2 = WolfResultsReader.readRaceListFile("test-files/not_a_file.md");
 		
 		
 	}

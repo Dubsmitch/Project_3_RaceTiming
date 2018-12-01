@@ -84,8 +84,6 @@ public class WolfResultsReader {
 		
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		//fileReader.close();
 		return raceList;
