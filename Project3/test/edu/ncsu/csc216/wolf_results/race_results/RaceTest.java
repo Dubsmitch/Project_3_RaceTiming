@@ -41,7 +41,18 @@ public class RaceTest {
 		racePlus.setDistance(10);
 		assertEquals(racePlus.getDistance(), 10, .01);
 		
-		assertEquals(list.filter(0, 100, "00:00:00", "1:00:00").size(), 1);
+		IndividualResult a= new IndividualResult(race, "Dubs", 26, min25);
+		
+		IndividualResult b= new IndividualResult(race, "Dubs", 20, min25);
+		IndividualResult d= new IndividualResult(race, "Dubs", 21, min25);
+		list.addResult(a);
+		list.addResult(b);
+		list.addResult(d);
+
+		race.addIndividualResult(a);
+		race.addIndividualResult(b);
+		race.addIndividualResult(d);
+		assertEquals(race.filter(0, 21, "00:00:00", "1:00:00").size(), 2);
 	
 		
 		//RaceTime avg5 = new RaceTime("0:05:05");
@@ -65,6 +76,18 @@ public class RaceTest {
 		assertTrue(!race.equals(racePlus));
 		
 		assertEquals(race.hashCode(), race.hashCode());
+		
+		assertTrue(!race.equals(racePlus));
 	}
-
+	
+	/**
+	 * tests the to String method
+	 */
+	@Test
+	public void testToString() {
+		LocalDate now = LocalDate.now();
+		Race race = new Race("5 mile", 5, now, "Here");
+		String raceString = "5 mile (5.0 miles) on " + now.toString() + " at Here";
+		assertEquals(race.toString(), raceString);
+	}
 }
