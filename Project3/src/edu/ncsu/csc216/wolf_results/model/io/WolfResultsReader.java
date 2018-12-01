@@ -31,12 +31,16 @@ public class WolfResultsReader {
 	 * 		the file name to be read
 	 * @return RaceList
 	 * 		the races and results from the file 
+	 * @throws FileNotFoundException 
+	 * 			if the file cannot be found
 	 */
 	@SuppressWarnings("resource")
 	public static RaceList readRaceListFile(String filename) {
 		RaceList raceList = new RaceList();
+		
+		Scanner fileReader;
 		try {
-			Scanner fileReader = new Scanner(new FileInputStream(filename));
+			fileReader = new Scanner(new FileInputStream(filename));
 			Race currentRace = null;
 			while (fileReader.hasNextLine()) {
 				
@@ -77,12 +81,15 @@ public class WolfResultsReader {
 				lineReader.close();
 				//lineReader2.close();
 				//fileReader.nextLine();
+		
 			}
-			fileReader.close();
-			return raceList;
 		} catch (FileNotFoundException e) {
-			throw new IllegalArgumentException ();
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		//fileReader.close();
+		return raceList;
+		
 	}
 	@SuppressWarnings("resource")
 	private static IndividualResult readResult(String nextLine, Race currentRace) {

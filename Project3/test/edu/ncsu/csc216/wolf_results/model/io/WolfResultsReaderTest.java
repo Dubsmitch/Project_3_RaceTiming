@@ -12,16 +12,14 @@ public class WolfResultsReaderTest {
 
 	@Test
 	public void test() {
-		try {
+		
 			
 			RaceList list = WolfResultsReader.readRaceListFile("test-files/sample.md");
 			assertEquals(list.getRace(0).getResults().size(), 25);
 			assertEquals(list.getRace(1).getResults().size(), 10);
 			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		
 		
 		
 	}

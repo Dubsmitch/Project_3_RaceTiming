@@ -94,13 +94,9 @@ public class WolfResultsManager extends Observable implements Observer {
 	 * 		the file to be read from
 	 */
 	public void loadFile(String filename) {
-		try {
-			RaceList list = WolfResultsReader.readRaceListFile(filename);
-			this.list = list;
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		RaceList list = WolfResultsReader.readRaceListFile(filename);
+		this.list = list;
+		
 	}
 	/**
 	 * writes to a file

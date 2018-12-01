@@ -12,7 +12,6 @@ public class WolfResultsWriterTest {
 
 	@Test
 	public void test() {
-		try {
 			
 			RaceList list = WolfResultsReader.readRaceListFile("test-files/sample.md");
 			assertEquals(list.getRace(0).getResults().size(), 25);
@@ -21,10 +20,7 @@ public class WolfResultsWriterTest {
 			
 			//WolfResultsWriter thing = new WolfResultsWriter();
 			WolfResultsWriter.writeRaceFile("test-files/sample_test.md", list);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
+		
 		
 		
 	}
