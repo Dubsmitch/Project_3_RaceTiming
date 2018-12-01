@@ -3,9 +3,15 @@ package edu.ncsu.csc216.wolf_results.util;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
+/**
+ * tests the raceTime class
+ * @author William
+ *
+ */
 public class RaceTimeTest {
-
+	/**
+	 * tests the constructor
+	 */
 	@Test
 	public void testConstructor() {
 		@SuppressWarnings("unused")
@@ -67,7 +73,8 @@ public class RaceTimeTest {
 			RaceTime e = new RaceTime("0:59:");
 			fail("");
 		} catch (IllegalArgumentException e) {
-			
+			assertEquals(d.getHours(), 10);
+
 		}
 		try {
 			@SuppressWarnings("unused")
@@ -78,12 +85,17 @@ public class RaceTimeTest {
 
 		}
 	}
+	/**
+	 * tests the to seconds method
+	 */
 	@Test
 	public void testToSeconds() {
 		RaceTime toseconds = new RaceTime("3:48:24");
 		assertEquals(toseconds.getTimeInSeconds(), 13704);
 	}
-	
+	/**
+	 * tests the to string method
+	 */
 	@Test
 	public void testToString() {
 		RaceTime a = new RaceTime("3:48:24");
@@ -99,6 +111,9 @@ public class RaceTimeTest {
 		assertEquals(c.toString(), cString);
 		
 	}
+	/**
+	 * tests the compare to method
+	 */
 	@Test
 	public void testCompareTo() {
 		RaceTime a = new RaceTime("3:48:24");
