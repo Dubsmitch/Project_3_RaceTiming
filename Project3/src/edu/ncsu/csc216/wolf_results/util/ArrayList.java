@@ -120,7 +120,11 @@ public class ArrayList implements List  {
     		
     		this.list = list2;
     	}
-    	
+    	for (int i = 0; i < size(); i++) {
+    		if (o.equals(list[i])) {
+    			return false;
+    		}
+    	}
     	list[this.size()] = o;
     	size = size + 1;
     	//will need to change this to true
