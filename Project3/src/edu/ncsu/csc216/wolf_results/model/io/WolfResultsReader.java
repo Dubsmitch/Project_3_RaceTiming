@@ -84,6 +84,7 @@ public class WolfResultsReader {
 		
 			}
 		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException ("cant do that");
 		}
 		//fileReader.close();
 		return raceList;

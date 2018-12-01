@@ -1,6 +1,5 @@
 package edu.ncsu.csc216.wolf_results.manager;
 
-import java.io.FileNotFoundException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -99,8 +98,7 @@ public class WolfResultsManager extends Observable implements Observer {
 	 * 		the file to be read from
 	 */
 	public void loadFile(String filename) {
-		RaceList list = WolfResultsReader.readRaceListFile(filename);
-		this.list = list;
+		list = WolfResultsReader.readRaceListFile(filename);
 		this.filename = filename;
 		notifyObservers(this);
 	}

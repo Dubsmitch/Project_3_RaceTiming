@@ -9,9 +9,15 @@ import org.junit.Test;
 import edu.ncsu.csc216.wolf_results.race_results.IndividualResult;
 import edu.ncsu.csc216.wolf_results.race_results.Race;
 import edu.ncsu.csc216.wolf_results.util.RaceTime;
-
+/**
+ * tests the wolfresultsmanager class
+ * @author William
+ *
+ */
 public class WolfResultsManagerTest {
-
+	/**
+	 * tests constrcutor
+	 */
 	@Test
 	public void testConstrctor() {
 		WolfResultsManager a = WolfResultsManager.getInstance();
@@ -27,7 +33,7 @@ public class WolfResultsManagerTest {
 		RaceTime min25 = new RaceTime("0:25:25");
 
 		Race race = new Race("5 mile", 5, now, "Here");
-		IndividualResult dubsRes= new IndividualResult(race, "Dubs", 27, min25);
+		IndividualResult dubsRes = new IndividualResult(race, "Dubs", 27, min25);
 		a.getRaceList().addRace(race);
 		race.addIndividualResult(dubsRes);
 		
@@ -43,7 +49,9 @@ public class WolfResultsManagerTest {
 		a.saveFile("test-files/sample_manager_test.md");
 
 	}
-	
+	/**
+	 * tests changing the filename
+	 */
 	@Test 
 	public void testFilenamejunk() {
 		WolfResultsManager a = WolfResultsManager.getInstance();
