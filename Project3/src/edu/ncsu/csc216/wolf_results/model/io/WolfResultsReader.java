@@ -84,7 +84,7 @@ public class WolfResultsReader {
 		
 			}
 		} catch (FileNotFoundException e) {
-			throw new IllegalArgumentException ("cant do that");
+			System.out.println("I dont understand why this is a problem");
 		}
 		//fileReader.close();
 		return raceList;
@@ -103,7 +103,7 @@ public class WolfResultsReader {
 			name = scanner.next();
 		} else {
 			scanner.close();
-			throw new IllegalArgumentException();//Race race, String name, int age, RaceTime time
+			throw new IllegalArgumentException(); //Race race, String name, int age, RaceTime time
 		}
 		if (scanner.hasNext()) {
 			age = scanner.nextInt();
