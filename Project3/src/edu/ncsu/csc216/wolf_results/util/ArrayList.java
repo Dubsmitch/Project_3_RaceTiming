@@ -109,7 +109,7 @@ public class ArrayList implements List  {
     	}
     	//check to see if the array size is equal to length
     	//if so double the size
-    	if (size + 1 == list.length) {
+    	if ((size() + 1) == list.length) {
     		int sizeCurrentArray = list.length;
 		
     		Object[] list2 = new Object[sizeCurrentArray * RESIZE];
