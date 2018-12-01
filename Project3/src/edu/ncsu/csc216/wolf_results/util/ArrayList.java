@@ -12,9 +12,9 @@ package edu.ncsu.csc216.wolf_results.util;
  */
 public class ArrayList implements List  {
 	/** serialization UID is long **/
-	private static final long serialVersionUID = 1L;
+	public static final long serialVersionUID = 1L;
 	/** resize the array **/
-	private static final int RESIZE = 2;
+	public static final int RESIZE = 2;
 	/** the array of objects **/
 	private Object[] list;
 	/** the size of the list **/
