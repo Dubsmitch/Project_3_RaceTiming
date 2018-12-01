@@ -26,6 +26,9 @@ public class ArrayList implements List  {
 	 * 		the capacity of the arrayList
 	 */
 	public ArrayList (int cap) {
+		if (cap == 0) {
+			throw new IllegalArgumentException();
+		}
 		Object[] list = new Object[cap];
 		this.list = list;
 		this.size = 0;
