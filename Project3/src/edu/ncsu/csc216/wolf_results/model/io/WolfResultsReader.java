@@ -18,14 +18,6 @@ import edu.ncsu.csc216.wolf_results.util.RaceTime;
  */
 public class WolfResultsReader {
 	/**
-	 * creates a Wolf results Reader 
-	 * that can read files and create a raceList
-	 * from them
-	 */
-	public WolfResultsReader() {
-		
-	}
-	/**
 	 * reads a file and returns a racelist
 	 * @param filename
 	 * 		the file name to be read

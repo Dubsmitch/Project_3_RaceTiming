@@ -24,7 +24,7 @@ public class WolfResultsReaderTest {
 		assertEquals(list.getRace(1).getResults().size(), 10);
 			
 		RaceList list2 = WolfResultsReader.readRaceListFile("test-files/not_a_file.md");
-		
+		assertEquals(list2, list2);
 		
 	}
 

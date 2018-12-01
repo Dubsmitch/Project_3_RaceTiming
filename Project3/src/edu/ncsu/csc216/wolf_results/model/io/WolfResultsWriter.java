@@ -12,12 +12,7 @@ import edu.ncsu.csc216.wolf_results.race_results.RaceList;
  *
  */
 public class WolfResultsWriter {
-	/**
-	 * saves a race list file
-	 */
-	public WolfResultsWriter() {
-		
-	}
+
 	/**
 	 * writes a face file with a given file name and list
 	 * @param filename
