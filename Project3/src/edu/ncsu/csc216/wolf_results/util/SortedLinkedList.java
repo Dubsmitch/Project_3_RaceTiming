@@ -296,7 +296,9 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (head.value.hashCode());
+		if (head.value != null) {
+			result = prime * result + (head.value.hashCode());
+		}
 		if (head.next.value != null) {
 			result = prime * result + head.next.value.hashCode();
 		}
