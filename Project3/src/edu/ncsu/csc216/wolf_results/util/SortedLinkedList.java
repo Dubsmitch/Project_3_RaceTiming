@@ -286,8 +286,11 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
     	
     	
     }
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
+	/**
+	 * creates a hashed integer representation of the object
+	 * 
+	 * @return int
+	 * 		the bits assocaited with this object
 	 */
 	@Override
 	public int hashCode() {
@@ -301,8 +304,11 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
+	/**
+	 * checks to see if two objects are equal
+	 * 
+	 * @return boolean
+	 * 		whether or not to items are equal
 	 */
 	@Override
 	public boolean equals(Object obj) {
