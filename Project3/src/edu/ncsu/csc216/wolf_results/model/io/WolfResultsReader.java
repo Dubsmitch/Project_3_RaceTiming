@@ -73,6 +73,7 @@ public class WolfResultsReader {
 			} else if (lineReaderNext.equals("*")) {
 				IndividualResult result = readResult(lineReader.nextLine(), currentRace);
 				currentRace.addIndividualResult(result);
+				System.out.println(result.toString());
 			}
 			raceList.addRace(currentRace);
 			lineReader.close();

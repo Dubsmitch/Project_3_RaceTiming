@@ -17,6 +17,7 @@ public class WolfResultsWriterTest {
 			RaceList list = WolfResultsReader.readRaceListFile("test-files/sample.md");
 			assertEquals(list.getRace(0).getResults().size(), 25);
 			assertEquals(list.getRace(1).getResults().size(), 10);
+			assertEquals(list.getRace(0).getResults().getResult(7).getName(), "ANDREW FISHER");
 			
 			//WolfResultsWriter thing = new WolfResultsWriter();
 			WolfResultsWriter.writeRaceFile("test-files/sample_test.md", list);

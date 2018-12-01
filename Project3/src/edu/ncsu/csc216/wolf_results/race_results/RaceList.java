@@ -100,7 +100,7 @@ public class RaceList extends Observable implements Observer{
 	 * 		no idea
 	 */
 	public void update(Observable o, Object args) {
-		//no idea how to do this
+		
 	}
 	
 }

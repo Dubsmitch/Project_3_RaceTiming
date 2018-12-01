@@ -109,7 +109,7 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
     		size = size + 1;
     		return true;
     	}
-    	
+    	//int count = 0;
     	while (e.compareTo(leading.value) > 0 && leading.next != null) {
     		trailing = leading;
     		leading = leading.next;
@@ -119,28 +119,27 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
     	if (index == 0) {
     		Node newNode = new Node(e, leading);
     		head = newNode;
-    	}
-    	
-    	if (index != 0 && leading.next != null) {
+    	} else if (index != 0 && leading.next != null) {
     		Node newNode = new Node (e, leading);
     		trailing.next = newNode;
     		
-    	} 
-    	
-    	if (leading.next == null && index != 0 && e.compareTo(leading.value) > 0) {
+    	} else if (leading.next == null && index != 0 && e.compareTo(leading.value) > 0) {
+    		//problem here 
+    		//	trailing - leading - null
+    		//	trailing - leading - newnode, null
     		Node newNode = new Node(e);
     		trailing = leading;
     		leading = newNode;
-    		
-    		trailing.next = newNode;
-    	} 
-    	
-    	if (leading.next == null && index != 0 && e.compareTo(leading.value) <= 0) {
+    		trailing.next = leading;
+    		//leading.next = newNode;
+
+    		//count++;
+    	} else if (leading.next == null && index != 0 && e.compareTo(leading.value) <= 0) {
     		Node newNode = new Node(e, leading);
     		trailing.next = newNode;
+    		//count++;
     	}
 
-    	
     	size = size + 1;
     	return true;
     	

@@ -36,10 +36,13 @@ public class WolfResultsWriter {
 			fileWriter.println(list.getRace(i).getDate().toString());
 			fileWriter.println(list.getRace(i).getLocation());
 			fileWriter.println();
+			int index = 0;
+
 			for (int j = 0; j < list.getRace(i).getResults().size(); j++) {
-				fileWriter.print("* " + list.getRace(i).getResults().getResult(j).getName() + ",");
-				fileWriter.print(list.getRace(i).getResults().getResult(j).getAge() + ",");
-				fileWriter.println(list.getRace(i).getResults().getResult(j).getTime().toString());
+				fileWriter.print("* " + list.getRace(i).getResults().getResult(index).getName() + ",");
+				fileWriter.print(list.getRace(i).getResults().getResult(index).getAge() + ",");
+				fileWriter.println(list.getRace(i).getResults().getResult(index).getTime().toString());
+				index++;
 			}
 			fileWriter.println();
 

@@ -10,7 +10,7 @@ import edu.ncsu.csc216.wolf_results.util.RaceTime;
  * @author William
  *
  */
-public class IndividualResult extends Observable implements Comparable<IndividualResult>{
+public class IndividualResult extends Observable implements Comparable<IndividualResult>, Observer{
 
 	/** the name of the racer **/
 	private String name;

@@ -1,7 +1,11 @@
 package edu.ncsu.csc216.wolf_results.manager;
 
+import java.io.FileNotFoundException;
 import java.util.Observable;
+import java.util.Observer;
 
+import edu.ncsu.csc216.wolf_results.model.io.WolfResultsReader;
+import edu.ncsu.csc216.wolf_results.model.io.WolfResultsWriter;
 import edu.ncsu.csc216.wolf_results.race_results.RaceList;
 /**
  * creates a manager
@@ -11,9 +15,9 @@ import edu.ncsu.csc216.wolf_results.race_results.RaceList;
  * @author William
  *
  */
-public class WolfResultsManager extends Observable {
+public class WolfResultsManager extends Observable implements Observer {
 	/** an instance of itself **/
-	private WolfResultsManager instance;
+	private static WolfResultsManager instance;
 	/** an instance of the race list **/
 	private RaceList list;
 	/** filename **/
@@ -30,20 +34,25 @@ public class WolfResultsManager extends Observable {
 	 * 		current one, else creates one.
 	 */
 	public static WolfResultsManager getInstance() {
-		return null;
+		if (instance == null) {
+			WolfResultsManager instance = new WolfResultsManager();
+		}
+		return instance;
 	}
 	/**
 	 * calls getInstance to construct an instance
 	 * of itself
 	 */
 	private WolfResultsManager() {
-		//make a constructor
+		getInstance();
+		RaceList list = new RaceList();
+		list.addObserver(this);
 	}
 	/**
 	 * creates a new list
 	 */
 	public void newList() {
-		//creates a new list
+		list = new RaceList();
 	}
 	/**
 	 * checks to see if the file has been changed
@@ -52,13 +61,13 @@ public class WolfResultsManager extends Observable {
 	 * 		if a file has been changed
 	 */
 	public boolean isChanged() {
-		return false;
+		return this.changed;
 	}
 	/**
 	 * sets if a file has been changed or not
 	 */
 	private void setChanged(boolean changed) {
-		//create this
+		this.changed = changed;
 	}
 	/**
 	 * returns the name of the file
@@ -66,7 +75,7 @@ public class WolfResultsManager extends Observable {
 	 * 		the name of the file
 	 */
 	public String getFilename() {
-		return null;
+		return this.filename;
 	}
 	/**
 	 * sets the filename
@@ -74,7 +83,10 @@ public class WolfResultsManager extends Observable {
 	 * 		the file name to be set to
 	 */
 	public void setFilename(String filename) {
-		//sets the filename
+		if (filename == null || filename.equals("") || filename.length() == 0) {
+			throw new IllegalArgumentException();
+		}
+		this.filename = filename;
 	}
 	/**
 	 * loads from file
@@ -82,7 +94,13 @@ public class WolfResultsManager extends Observable {
 	 * 		the file to be read from
 	 */
 	public void loadFile(String filename) {
-		//call io class filereader
+		try {
+			RaceList list = WolfResultsReader.readRaceListFile(filename);
+			this.list = list;
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * writes to a file
@@ -90,7 +108,12 @@ public class WolfResultsManager extends Observable {
 	 * 		the file to be saved to
 	 */
 	public void saveFile(String filename) {
-		//call io filewriter
+		try {
+			WolfResultsWriter.writeRaceFile(filename, this.list);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * gets a racelist
@@ -98,7 +121,7 @@ public class WolfResultsManager extends Observable {
 	 * 		the racelist that was gotten
 	 */
 	public RaceList getRaceList() {
-		return null;
+		return this.list;
 	}
 	/**
 	 * updates an object based on changes to the observable objecct
@@ -108,6 +131,6 @@ public class WolfResultsManager extends Observable {
 	 * 		object under observation (?)
 	 */
 	public void update(Observable o, Object args) {
-		//no idea what this means exactly
+		setChanged(true);
 	}
 }

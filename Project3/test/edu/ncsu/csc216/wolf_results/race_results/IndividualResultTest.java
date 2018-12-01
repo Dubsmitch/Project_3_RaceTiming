@@ -39,5 +39,23 @@ public class IndividualResultTest {
 		String result = "IndividualResult [name=Dubs, age=27, time=0:25:25, pace=0:05:05]";
 		assertEquals(dubsRes.toString(), result);
 	}
+	/**
+	 * tests obeserver update;
+	 */
+	@Test
+	public void testObserver() {
+		LocalDate now = LocalDate.now();
+		Race race = new Race("5 mile", 5, now, "Here");
+		RaceTime min25 = new RaceTime("0:25:25");
+		
+		IndividualResult dubsRes= new IndividualResult(race, "Dubs", 27, min25);
+		race.addIndividualResult(dubsRes);
+		assertEquals(race.getResults().getResult(0), dubsRes);
+		double raceDistance = 2.5;
+		race.setDistance(raceDistance);
+		assertEquals(race.getResults().getResult(0), dubsRes);
+		assertEquals(raceDistance, dubsRes.getRace().getDistance(), .01);
+
+	}
 
 }
