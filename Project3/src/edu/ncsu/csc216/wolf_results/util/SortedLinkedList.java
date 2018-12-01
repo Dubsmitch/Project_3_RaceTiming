@@ -273,14 +273,14 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
     	}
     	else {
     		for (int i = 0; i < size() - 1; i++) {
-    			String elementAdd = "[" + this.get(i).toString() + "],";
+    			String elementAdd = " [" + this.get(i).toString() + "],";
     			toString = toString + elementAdd;
     			
     		}
-			String elementAdd = "[" + this.get(size() - 1).toString() + "]";
+			String elementAdd = " [" + this.get(size() - 1).toString() + "]";
 			toString = toString + elementAdd;
 			
-			return toString;
+			return toString.trim();
     	}
     	
     	
