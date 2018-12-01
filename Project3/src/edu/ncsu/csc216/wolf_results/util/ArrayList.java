@@ -122,7 +122,7 @@ public class ArrayList implements List  {
     	}
     	for (int i = 0; i < size(); i++) {
     		if (o.equals(list[i])) {
-    			return false;
+    			throw new IllegalArgumentException();
     		}
     	}
     	list[this.size()] = o;
