@@ -81,7 +81,9 @@ public class RaceList extends Observable implements Observer{
 	 * 
 	 */
 	public Race getRace(int idx) {
-		if (idx < 0 || idx >= size());
+		if (idx < 0 || idx >= size()) {
+			throw new IllegalArgumentException ();
+		}
 		return (Race) races.get(idx);
 	}
 	/**
