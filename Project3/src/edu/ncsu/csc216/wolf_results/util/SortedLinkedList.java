@@ -117,15 +117,8 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
     	}
     	
     	if (index == 0) {
-    		//then the new node goes in front.
-    		//create a new node
-    		// null - thing = null
-    		// null - new thing - old thing - null
-    		Node newNode = new Node(e);
-    		trailing = leading;
-    		leading = newNode;
-    		trailing.next = leading;
-    		head = trailing;
+    		Node newNode = new Node(e, leading);
+    		head = newNode;
     	} else if (index != 0 && leading.next != null) {
     		Node newNode = new Node (e, leading);
     		trailing.next = newNode;
