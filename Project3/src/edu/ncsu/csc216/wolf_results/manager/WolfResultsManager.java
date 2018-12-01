@@ -56,6 +56,7 @@ public class WolfResultsManager extends Observable implements Observer {
 	public void newList() {
 		list = new RaceList();
 		list.addObserver(this);
+		this.setChanged(false);
 	}
 	/**
 	 * checks to see if the file has been changed
