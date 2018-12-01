@@ -31,58 +31,58 @@ public class WolfResultsReader {
 	 * 		the file name to be read
 	 * @return RaceList
 	 * 		the races and results from the file 
-	 * @throws FileNotFoundException 
-	 * 			if the file cannot be found
 	 */
 	@SuppressWarnings("resource")
-	public static RaceList readRaceListFile(String filename) throws FileNotFoundException {
+	public static RaceList readRaceListFile(String filename) {
 		RaceList raceList = new RaceList();
-		
-		Scanner fileReader = new Scanner(new FileInputStream(filename));
-		Race currentRace = null;
-		while (fileReader.hasNextLine()) {
-			
-			//System.out.println(fileReader.nextLine());
-			//make a line scanner
-			Scanner lineReader = new Scanner(fileReader.nextLine());
-			//Scanner lineReader2 = null;
-			//if the line scanner has a # then the next 4 lines are a race
-			String lineReaderNext = null;
-
-			if (lineReader.hasNext()) {
-				lineReaderNext = lineReader.next();
-			} else {
-				lineReader = new Scanner(fileReader.nextLine());
-				lineReaderNext = lineReader.next();
-			}					
-			//why is this getting hung?!
-			//System.out.println(lineReaderNext);
-			//if (!lineReaderNext.equals("#")||!lineReaderNext.equals("*")) {
-				//System.out.println("why did this go in here?");
-
-				//lineReaderNext = lineReader.next();
-			//}
-			
-			
-			if (lineReaderNext.equals("#")) {
-				Race race = readRace(lineReader.nextLine(),
-						fileReader.nextLine(), 
-						fileReader.nextLine(), 
-						fileReader.nextLine());
-				currentRace = race;
-			} else if (lineReaderNext.equals("*")) {
-				IndividualResult result = readResult(lineReader.nextLine(), currentRace);
-				currentRace.addIndividualResult(result);
-				System.out.println(result.toString());
+		try {
+			Scanner fileReader = new Scanner(new FileInputStream(filename));
+			Race currentRace = null;
+			while (fileReader.hasNextLine()) {
+				
+				//System.out.println(fileReader.nextLine());
+				//make a line scanner
+				Scanner lineReader = new Scanner(fileReader.nextLine());
+				//Scanner lineReader2 = null;
+				//if the line scanner has a # then the next 4 lines are a race
+				String lineReaderNext = null;
+	
+				if (lineReader.hasNext()) {
+					lineReaderNext = lineReader.next();
+				} else {
+					lineReader = new Scanner(fileReader.nextLine());
+					lineReaderNext = lineReader.next();
+				}					
+				//why is this getting hung?!
+				//System.out.println(lineReaderNext);
+				//if (!lineReaderNext.equals("#")||!lineReaderNext.equals("*")) {
+					//System.out.println("why did this go in here?");
+	
+					//lineReaderNext = lineReader.next();
+				//}
+				
+				
+				if (lineReaderNext.equals("#")) {
+					Race race = readRace(lineReader.nextLine(),
+							fileReader.nextLine(), 
+							fileReader.nextLine(), 
+							fileReader.nextLine());
+					currentRace = race;
+				} else if (lineReaderNext.equals("*")) {
+					IndividualResult result = readResult(lineReader.nextLine(), currentRace);
+					currentRace.addIndividualResult(result);
+					System.out.println(result.toString());
+				}
+				raceList.addRace(currentRace);
+				lineReader.close();
+				//lineReader2.close();
+				//fileReader.nextLine();
 			}
-			raceList.addRace(currentRace);
-			lineReader.close();
-			//lineReader2.close();
-			//fileReader.nextLine();
+			fileReader.close();
+			return raceList;
+		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException ();
 		}
-		fileReader.close();
-		return raceList;
-		
 	}
 	@SuppressWarnings("resource")
 	private static IndividualResult readResult(String nextLine, Race currentRace) {
