@@ -2,14 +2,19 @@ package edu.ncsu.csc216.wolf_results.model.io;
 
 import static org.junit.Assert.*;
 
-import java.io.FileNotFoundException;
-
 import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_results.race_results.RaceList;
-
+/**
+ * tests the class that reads files
+ * 
+ * @author William
+ *
+ */
 public class WolfResultsReaderTest {
-
+	/**
+	 * tests reading a file
+	 */
 	@Test
 	public void test() {
 		

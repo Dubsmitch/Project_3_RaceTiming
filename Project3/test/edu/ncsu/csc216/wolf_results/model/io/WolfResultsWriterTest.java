@@ -1,15 +1,15 @@
 package edu.ncsu.csc216.wolf_results.model.io;
 
 import static org.junit.Assert.*;
-
-import java.io.FileNotFoundException;
-
+ 
 import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_results.race_results.RaceList;
 
 public class WolfResultsWriterTest {
-
+	/**
+	 * tests writing a file
+	 */
 	@Test
 	public void test() {
 			
