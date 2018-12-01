@@ -193,7 +193,7 @@ public class SortedLinkedListTest {
 		 
 		String b = "b";
 		String c = "c";
-		String ab = "[a],[b]";
+		String ab = "[a], [b]";
 		list.add(b);
 		assertEquals(list.toString(), ab);
 		
