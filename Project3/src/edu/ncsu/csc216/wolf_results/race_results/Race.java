@@ -151,7 +151,7 @@ public class Race extends Observable {
 	
 	/**
 	 * returns a string representation of the race
-	 * 
+	 * Adding this in so I can repush
 	 * @return String
 	 * 		the string representation of the race
 	 */
