@@ -36,8 +36,26 @@ public class WolfResultsManagerTest {
 		race.setDistance(raceDistance);
 		assertEquals(race.getResults().getResult(0), dubsRes);
 		assertEquals(raceDistance, dubsRes.getRace().getDistance(), .01);
+		
+		//assertTrue()
 		assertTrue(a.isChanged());
+		
+		a.saveFile("test-files/sample_manager_test.md");
 
+	}
+	
+	@Test 
+	public void testFilenamejunk() {
+		WolfResultsManager a = WolfResultsManager.getInstance();
+		
+		a.loadFile("test-files/sample.md");
+		assertEquals(a.getRaceList().getRace(0).getResults().size(), 25);
+		
+		assertEquals(a.getFilename(), "test-files/sample.md");
+		
+		a.setFilename("hello");
+		
+		assertEquals(a.getFilename(), "hello");
 	}
 
 }

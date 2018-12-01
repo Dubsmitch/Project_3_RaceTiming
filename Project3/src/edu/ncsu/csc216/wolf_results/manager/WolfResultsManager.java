@@ -32,6 +32,7 @@ public class WolfResultsManager extends Observable implements Observer {
 	private WolfResultsManager() {
 		list = new RaceList();
 		list.addObserver(this);
+
 	}
 	
 	/**
@@ -54,6 +55,7 @@ public class WolfResultsManager extends Observable implements Observer {
 	 */
 	public void newList() {
 		list = new RaceList();
+		list.addObserver(this);
 	}
 	/**
 	 * checks to see if the file has been changed
@@ -97,7 +99,7 @@ public class WolfResultsManager extends Observable implements Observer {
 	public void loadFile(String filename) {
 		RaceList list = WolfResultsReader.readRaceListFile(filename);
 		this.list = list;
-		
+		this.filename = filename;
 	}
 	/**
 	 * writes to a file
@@ -125,5 +127,6 @@ public class WolfResultsManager extends Observable implements Observer {
 	 */
 	public void update(Observable o, Object args) {
 		setChanged(true);
+		System.out.println("This should be called");
 	}
 }
