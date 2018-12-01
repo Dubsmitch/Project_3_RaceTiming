@@ -157,6 +157,7 @@ public class Race extends Observable {
 	 */
 	public String toString() {
 		String theRace = name + " (" + distance + " miles) on " + date.toString() + " at " + location;
+		
 		return theRace;
 	}
 	
