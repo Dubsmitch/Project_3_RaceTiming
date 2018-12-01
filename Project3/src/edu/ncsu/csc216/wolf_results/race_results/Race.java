@@ -203,7 +203,7 @@ public class Race extends Observable {
 	/**
 	 * returns an integer representation of the object
 	 * 
-	 * @retun int
+	 * @return int
 	 * 		the hashed code of the race object
 	 */
 	@Override

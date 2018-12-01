@@ -23,8 +23,7 @@ public class WolfResultsReader {
 	 * 		the file name to be read
 	 * @return RaceList
 	 * 		the races and results from the file 
-	 * @throws FileNotFoundException 
-	 * 			if the file cannot be found
+
 	 */
 	@SuppressWarnings("resource")
 	public static RaceList readRaceListFile(String filename) {

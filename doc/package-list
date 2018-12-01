@@ -1,0 +1,5 @@
+edu.ncsu.csc216.wolf_results.manager
+edu.ncsu.csc216.wolf_results.model.io
+edu.ncsu.csc216.wolf_results.race_results
+edu.ncsu.csc216.wolf_results.ui
+edu.ncsu.csc216.wolf_results.util

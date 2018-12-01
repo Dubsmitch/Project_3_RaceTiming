@@ -18,21 +18,22 @@ package edu.ncsu.csc216.wolf_results.util;
  *
  * @author Josh Bloch
  * @author Neal Gafter
- * @see Collection
- * @see Set
- * @see ArrayList
- * @see LinkedList
- * @see Vector
- * @see Arrays#asList(Object[])
- * @see Collections#nCopies(int, Object)
- * @see Collections#EMPTY_LIST
- * @see AbstractList
- * @see AbstractSequentialList
- * @since 1.2
- * 
- * @param E
- * 		the generic type
  */
+ //* @see Collection
+ //* @see Set
+ //* @see ArrayList
+ //* @see LinkedList
+ //* @see Vector
+ //* @see Arrays#asList(Object[])
+ //* @see Collections#nCopies(int, Object)
+ //* @see Collections#EMPTY_LIST
+ //* @see AbstractList
+ //* @see AbstractSequentialList
+ //* @since 1.2
+ //* 
+ //* @param E
+ //* 		the generic type
+ 
 
 public interface SortedList<E extends Comparable<E>> {
 
@@ -69,7 +70,8 @@ public interface SortedList<E extends Comparable<E>> {
      * Adds the specified element to list in sorted order
      *
      * @param e element to be appended to this list
-     * @return true (as specified by {@link Collection#add})
+     * @return boolean 
+     * 		if true else false
      * @throws NullPointerException if e is null
      * @throws IllegalArgumentException if list already contains e
      */
@@ -82,8 +84,7 @@ public interface SortedList<E extends Comparable<E>> {
      *
      * @param index index of the element to return
      * @return the element at the specified position in this list
-     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
-     *             || index >= size())
+     * @throws IndexOutOfBoundsException if the index is out of range (index less 0 || index or greater than size())
      */
     E get(int index);
 
@@ -94,8 +95,7 @@ public interface SortedList<E extends Comparable<E>> {
      *
      * @param index the index of the element to be removed
      * @return the element previously at the specified position
-     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
-     *             || index >= size())
+     * @throws IndexOutOfBoundsException if the index is out of range (index less 0 || index or greater than size())
      */
     E remove(int index);
 
