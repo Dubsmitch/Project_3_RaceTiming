@@ -250,6 +250,62 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
     	return -1;
     }
 
+    /**
+     * returns a string representation of the list
+     * @return String
+     * 		the string representation of the list
+     */
+    public String toString() {
+    	String toString = "";
+    	if (size() == 0) {
+    		return "[]";
+    	}
+    	else {
+    		for (int i = 0; i < size() - 1; i++) {
+    			String elementAdd = "[" + this.get(i).toString() + "],";
+    			toString = toString + elementAdd;
+    			
+    		}
+			String elementAdd = "[" + this.get(size() - 1).toString() + "]";
+			toString = toString + elementAdd;
+			
+			return toString;
+    	}
+    	
+    	
+    	
+    }
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (head.value.hashCode());
+		result = prime * result + size;
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		@SuppressWarnings("rawtypes")
+		SortedLinkedList other = (SortedLinkedList) obj;
+		if (!head.equals(other.head))
+			return false;
+		if (size != other.size)
+			return false;
+		return true;
+	}
 	/**
 	 * inner class for the sorted linked list that creates the nodes
 	 * for use within the linked list
@@ -312,23 +368,14 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
 		public boolean equals(Object obj) {
 			if (this == obj)
 				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
 			@SuppressWarnings("unchecked")
 			Node other = (Node) obj;
-			if (!getOuterType().equals(other.getOuterType()))
-				return false;
 			if (next == null) {
 				if (other.next != null)
 					return false;
 			} else if (!next.equals(other.next))
 				return false;
-			if (value == null) {
-				if (other.value != null)
-					return false;
-			} else if (!value.equals(other.value))
+			if (!value.equals(other.value))
 				return false;
 			return true;
 		}

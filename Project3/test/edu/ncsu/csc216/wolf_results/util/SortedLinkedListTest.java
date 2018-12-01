@@ -176,5 +176,40 @@ public class SortedLinkedListTest {
 		assertEquals(intL.indexOf(c), 2);
 		assertEquals(intL.indexOf(d), 3);
 	}
+	
+	/**
+	 * test inner class
+	 */
+	@Test
+	public void testNode() {
+		SortedLinkedList<String> list = new SortedLinkedList<String>();
+		String a = "a";
+		
+		list.add(a);
+		assertEquals(list.get(0), a);
+		String aToString = "[a]";
+		
+		assertEquals(list.toString(), aToString);
+		 
+		String b = "b";
+		String c = "c";
+		String ab = "[b],[a]";
+		list.add(b);
+		assertEquals(list.toString(), ab);
+		
+		SortedLinkedList<String> list2 = new SortedLinkedList<String>();
+		list2.add(a);
+		list2.add(b);
+		
+		
+		
+		assertEquals(list.hashCode(), list2.hashCode());
+		assertTrue(list.equals(list2));
+		list2.add(c);
+	
+		assertTrue(!list.equals(list2));
+		assertTrue(list.hashCode() != list2.hashCode());
+		
+	}
 
 }
