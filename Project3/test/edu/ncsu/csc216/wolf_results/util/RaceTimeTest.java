@@ -29,7 +29,8 @@ public class RaceTimeTest {
 			RaceTime e = new RaceTime("0:60:10");
 			fail("");
 		} catch (IllegalArgumentException e) {
-			
+			assertEquals(d.getHours(), 10);
+
 		}
 		
 		try {
@@ -38,7 +39,8 @@ public class RaceTimeTest {
 			RaceTime e = new RaceTime("-1:59:10");
 			fail("");
 		} catch (IllegalArgumentException e) {
-			
+			assertEquals(d.getHours(), 10);
+
 		}
 		
 		try {
@@ -47,7 +49,8 @@ public class RaceTimeTest {
 			RaceTime e = new RaceTime("0:-59:10");
 			fail("");
 		} catch (IllegalArgumentException e) {
-			
+			assertEquals(d.getHours(), 10);
+
 		}
 		try {
 			@SuppressWarnings("unused")
@@ -55,7 +58,8 @@ public class RaceTimeTest {
 			RaceTime e = new RaceTime("0:59:-10");
 			fail("");
 		} catch (IllegalArgumentException e) {
-			
+			assertEquals(d.getHours(), 10);
+
 		}
 		try {
 			@SuppressWarnings("unused")
@@ -70,7 +74,8 @@ public class RaceTimeTest {
 			RaceTime e = new RaceTime("0::10");
 			fail("");
 		} catch (IllegalArgumentException e) {
-			
+			assertEquals(d.getHours(), 10);
+
 		}
 	}
 	@Test
