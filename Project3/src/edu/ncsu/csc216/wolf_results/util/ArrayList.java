@@ -107,7 +107,8 @@ public class ArrayList implements List  {
      * documentation any restrictions on what elements may be added.
      *
      * @param o element to be appended to this list
-     * @return true (as specified by {@link Collection#add})
+     * @return boolean 
+     * 		if can be added
      */
     @Override
     public boolean add(Object o) {
@@ -145,8 +146,7 @@ public class ArrayList implements List  {
      *
      * @param index index of the element to return
      * @return the element at the specified position in this list
-     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
-     *             || index >= size())
+     * @throws IndexOutOfBoundsException if the index is out of range (index < 0 || index >= size())
      */
     @Override
     public Object get(int index) {
@@ -169,8 +169,7 @@ public class ArrayList implements List  {
      *             list does not permit null elements
      * @throws IllegalArgumentException if some property of the specified
      *             element prevents it from being added to this list
-     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
-     *             || index > size())
+     * @throws IndexOutOfBoundsException if the index is out of range (index < 0 || index > size())
      */
     @Override
     public void add(int index, Object element) {
@@ -303,8 +302,7 @@ public class ArrayList implements List  {
      *
      * @param index the index of the element to be removed
      * @return the element previously at the specified position
-     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
-     *             || index >= size())
+     * @throws IndexOutOfBoundsException if the index is out of range (index < 0 || index >= size())
      */
     @Override
     public Object remove(int index) {

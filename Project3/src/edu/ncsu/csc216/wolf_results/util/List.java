@@ -43,18 +43,19 @@ package edu.ncsu.csc216.wolf_results.util;
  *
  * @author Josh Bloch
  * @author Neal Gafter
- * @see Collection
- * @see Set
- * @see ArrayList
- * @see LinkedList
- * @see Vector
- * @see Arrays#asList(Object[])
- * @see Collections#nCopies(int, Object)
- * @see Collections#EMPTY_LIST
- * @see AbstractList
- * @see AbstractSequentialList
- * @since 1.2
  */
+ //* @see Collection
+ //* @see Set
+ //* @see ArrayList
+ //* @see LinkedList
+ //* @see Vector
+ //* @see Arrays#asList(Object[])
+ //* @see Collections#nCopies(int, Object)
+ //* @see Collections#EMPTY_LIST
+ //* @see AbstractList
+ //* @see AbstractSequentialList
+ //* @since 1.2
+ 
 
 public interface List {
     // Query Operations
@@ -97,7 +98,8 @@ public interface List {
      * documentation any restrictions on what elements may be added.
      *
      * @param o element to be appended to this list
-     * @return true (as specified by {@link Collection#add})
+     * @return boolean
+     * 		if it can be added
      */
     boolean add(Object o);
 
@@ -108,8 +110,7 @@ public interface List {
      *
      * @param index index of the element to return
      * @return the element at the specified position in this list
-     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
-     *             || index >= size())
+     * @throws IndexOutOfBoundsException if the index is out of range (index < 0 || index >= size())
      */
     Object get(int index);
 
@@ -125,8 +126,7 @@ public interface List {
      *             list does not permit null elements
      * @throws IllegalArgumentException if some property of the specified
      *             element prevents it from being added to this list
-     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
-     *             || index > size())
+     * @throws IndexOutOfBoundsException if the index is out of range (index < 0 || index > size())
      */
     void add(int index, Object element);
 
@@ -137,8 +137,7 @@ public interface List {
      *
      * @param index the index of the element to be removed
      * @return the element previously at the specified position
-     * @throws IndexOutOfBoundsException if the index is out of range (index < 0
-     *             || index >= size())
+     * @throws IndexOutOfBoundsException if the index is out of range (index < 0 || index >= size())
      */
     Object remove(int index);
     // Search Operations
