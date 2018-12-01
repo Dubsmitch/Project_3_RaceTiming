@@ -1,4 +1,4 @@
-package edu.ncsu.csc216.wolf_results.race_results;
+	package edu.ncsu.csc216.wolf_results.race_results;
 
 import java.time.LocalDate;
 import java.util.Observable;
@@ -28,7 +28,15 @@ public class RaceList extends Observable implements Observer{
 	 * 		the race to be added to the list
 	 */
 	public void addRace(Race race) {
-		// to-do
+		if (race == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		races.add(race);
+		race.addObserver(this);
+		
+		setChanged();
+		notifyObservers(this);
 	}
 	/**
 	 * adds a race to the list
@@ -45,7 +53,13 @@ public class RaceList extends Observable implements Observer{
 	 * 		the location of the race
 	 */
 	public void addRace(String name, double distance, LocalDate date, String location) {
-		//to-do
+		Race a = new Race (name, distance, date, location);
+		
+		races.add(a);
+		a.addObserver(this);
+		
+		setChanged();
+		notifyObservers(this);
 	}
 	/**
 	 * removes a list at a particular index
@@ -53,7 +67,9 @@ public class RaceList extends Observable implements Observer{
 	 * 		the index from which to remove a race
 	 */
 	public void removeRace(int idx) {
-		//remove a race
+		races.remove(idx);
+		setChanged();
+		notifyObservers(this);
 	}
 	/**
 	 * returns a race from the list at a specified
@@ -65,12 +81,13 @@ public class RaceList extends Observable implements Observer{
 	 * 
 	 */
 	public Race getRace(int idx) {
-		return null;
+		if (idx < 0 || idx >= size());
+		return (Race) races.get(idx);
 	}
 	/**
 	 * returns the size of the list of races
 	 * @return int
-	 * 		the size of the lis
+	 * 		the size of the list
 	 */
 	public int size() {
 		return races.size();
@@ -84,15 +101,6 @@ public class RaceList extends Observable implements Observer{
 	 */
 	public void update(Observable o, Object args) {
 		//no idea how to do this
-	}
-	
-	public void addRace(String name, double distance, LocalDate date, String location, RaceResultList results) {
-
-		//Other code as appropriate
-		Race race = new Race(name, distance,date, location, results);
-		race.addObserver(this); //Adds the current object as an Observer
-		//Other code as appropriate
-
 	}
 	
 }

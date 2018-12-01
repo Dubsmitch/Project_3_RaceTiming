@@ -1,4 +1,7 @@
 package edu.ncsu.csc216.wolf_results.util;
+
+import java.util.Scanner;
+
 /**
  * creates a race time out of integer and string
  * inputs with a valid construction
@@ -37,6 +40,66 @@ public class RaceTime {
 	 * 		the time of the result
 	 */
 	public RaceTime (String time) {
+		@SuppressWarnings("resource")
+		Scanner a = new Scanner(time).useDelimiter(":");
+		int hoursh = 0;
+		int minutesm = 0;
+		int secondss = 0;
+		if (a.hasNextInt()) {
+			hoursh = a.nextInt();
+			if (hoursh < 0) {
+				a.close();
+
+				throw new IllegalArgumentException();
+			}
+		} else {
+			a.close();
+
+			throw new IllegalArgumentException();
+		}
+		
+		if (a.hasNextInt()) {
+			minutesm = a.nextInt();
+			String thing = Integer.toString(minutesm);
+			if (thing.length() > 2) {
+				a.close();
+				throw new IllegalArgumentException();
+			}
+		} else {
+			a.close();
+
+			throw new IllegalArgumentException();
+		}
+		
+		if (a.hasNextInt()) {
+			secondss = a.nextInt();
+			String thing = Integer.toString(secondss);
+			if (thing.length() > 2) {
+				a.close();
+
+				throw new IllegalArgumentException();
+
+			}
+		} else {
+			a.close();
+			throw new IllegalArgumentException();
+		}
+		
+		if (a.hasNext()) {
+			a.close();
+
+			throw new IllegalArgumentException();
+		}
+		
+		if (secondss > 59 || minutesm > 59 || secondss < 0 || minutesm < 0) {
+			a.close();
+
+			throw new IllegalArgumentException();
+		}
+		this.hours = hoursh;
+		this.minutes = minutesm;
+		this.seconds = secondss;
+		a.close();
 		//must be in the format hh:mm:ss
 		//easy, create a scanner with the : as a delimiter.
 		//this.hours = 1;
@@ -49,7 +112,7 @@ public class RaceTime {
 	 * 		the time in hours
 	 */
 	public int getHours() {
-		return 0;
+		return this.hours;
 	}
 	/**
 	 * returns the seconds of the result
@@ -57,7 +120,7 @@ public class RaceTime {
 	 * 		the seconds place in the result time
 	 */
 	public int getSeconds() {
-		return 0;
+		return this.seconds;
 	}
 	/**
 	 * returns the minuntes of the result
@@ -66,7 +129,7 @@ public class RaceTime {
 	 * 		the minutes place of the time of the result
 	 */
 	public int getMinutes() {
-		return 0;
+		return this.minutes;
 	}
 	
 	/**
@@ -90,8 +153,22 @@ public class RaceTime {
 	 * 			hh:mm:ss
 	 */
 	public String toString() {
-		String a = null;
-		return a;
+		String hoursh = "";
+		String minutem = "";
+		String secondss = "";
+		
+		hoursh = Integer.toString(hours);
+		minutem = Integer.toString(minutes);
+		secondss = Integer.toString(seconds);
+		
+		if (secondss.length() == 1) {
+			secondss = "0" + secondss;
+		}
+		if (minutem.length() == 1) {
+			minutem = "0" + minutem;
+		}
+		String together = hoursh + ":" + minutem + ":" + secondss;
+		return together;
 	}
 	/**
 	 * compares one race time to another one
@@ -102,6 +179,12 @@ public class RaceTime {
 	 * 		-1 if less, 0 if the same, 1 if greater than
 	 */
 	public int compareTo(RaceTime other) {
-		return 0;
+		if (other.getTimeInSeconds() > this.getTimeInSeconds()) {
+			return -1;
+		} else if (other.getTimeInSeconds() == this.getTimeInSeconds()) {
+			return 0;
+		} else {
+			return 1;
+		}
 	}
 }

@@ -4,7 +4,7 @@ public class ArrayList implements List  {
 	/** serialization UID is long **/
 	private static final long serialVersionUID = 1L;
 	/** resize the array **/
-	private static final int RESIZE = 1;
+	private static final int RESIZE = 2;
 	/** the array of objects **/
 	private Object[] list;
 	/** the size of the list **/
@@ -71,6 +71,13 @@ public class ArrayList implements List  {
 	@Override
     public boolean contains(Object o) {
     	//errr not sure what in the world to do with this
+		// find each object in the list and then check it against the parameter
+		for (int i = 0; i < this.size(); i++) {
+			Object element = list[i];
+			if (o.equals(element)) {
+				return true;
+			}
+		}
     	return false;
     }
 
@@ -92,32 +99,29 @@ public class ArrayList implements List  {
     @Override
     public boolean add(Object o) {
     	if (o == null) {
+    		throw new NullPointerException();
+    	}
+    	if(this.contains(o)) {
     		return false;
     	}
-    	//I will still need to check to see if the object is a duplicate
-    	//if(object is a duplicate) {
-    	
-    		//do not add 
-    	//}
-    	
-    	//check to see if the current list is full    	
-    	if (this.size == this.list.length) {
-    		// if so create a new list that is one larger
-    		int sizeOfArray = list.length;
-    		Object[] holderList = new Object[sizeOfArray + RESIZE];
-    		// add old elements into the new list
-    		for (int i = 0; i < list.length; i++) {
-    			Object element = list[i];
-    			holderList[i] = element;
+    	//check to see if the array size is equal to length
+    	//if so double the size
+    	if (size + 1 == list.length) {
+    		int sizeCurrentArray = list.length;
+		
+    		Object[] list2 = new Object[sizeCurrentArray * RESIZE];
+    		
+    		for (int j = 0 ; j < size; j++) {
+    			list2[j] = list[j];
     		}
-    	// set the list to the new list
-    	this.list = holderList;
+    		
+    		this.list = list2;
     	}
     	
-    	list[size] = o;
+    	list[this.size()] = o;
     	size = size + 1;
     	//will need to change this to true
-    	return false;
+    	return true;
     }
     /**
      * Returns the element at the specified position in this list.
@@ -129,7 +133,10 @@ public class ArrayList implements List  {
      */
     @Override
     public Object get(int index) {
-    	Object e = null;
+    	if (index < 0 || index > size()) {
+    		throw new IndexOutOfBoundsException();
+    	}
+    	Object e = list[index];
     	return e;
     }
     
@@ -150,7 +157,126 @@ public class ArrayList implements List  {
      */
     @Override
     public void add(int index, Object element) {
-    	//make this
+    	if (index < 0 || index > size()) {
+    		throw new IndexOutOfBoundsException("index is out of range");
+    	}
+    	if (this.contains(element)) {
+    		throw new IllegalArgumentException("cannot add duplicate element");
+    	}
+    	if (element == null) {
+    		throw new NullPointerException("Cannot add a null element");
+    	}
+    	
+    	//check size
+    	if (size + 1 == list.length) {
+    		int sizeCurrentArray = list.length;
+		
+    		Object[] list2 = new Object[sizeCurrentArray * RESIZE];
+    		
+    		for (int j = 0 ; j < size; j++) {
+    			list2[j] = list[j];
+    		}
+    		
+    		this.list = list2;
+    	}
+    	
+    	//size is the number of items the list currently holds
+    	//length is the capacity (initialized to 10)
+    	//if the element is not added at the beginning or the end (end would be size-1 = index)
+    	if (index != 0 && index != (size)) {
+    		//create a second list to hold the original list (with the same length)
+    		Object[] list2 = new Object[list.length];
+    		
+    		//go through all the elements and add them to the second list
+    		//until the index to add is reached.
+    		for (int j = 0; j < index; j++) {
+    			list2[j] = list[j];
+    		}
+    		//then add object to the index to add
+    		list2[index] = element;
+    		
+    		//add one to size because the array will have to be
+    		//one larger to accomedate the new addition
+        	size = size + 1;
+        	
+    		//then add the rest of the items, adding one to the index for the
+        	//location in the new list
+    		for (int k = index; k < size; k++) {
+    			list2[k + 1] = list[k];
+    		}
+    		//then add all elements back to original list
+    		for (int j = 0; j < size; j++) {
+    			list[j] = list2[j];
+    		}
+    		
+    	// if tried to add to the beginning
+    	} else if (index == 0 && index != (size)) {
+    		//create a second list to hold the original list (with the same length)
+    		Object[] list2 = new Object[list.length];
+    		
+    		//add element to the beginning of the empty list
+    		list2[index] = element;
+    		
+    		//add one to size because the array will have to be
+    		//one larger to accomedate the new addition
+    		size = size + 1;
+    		
+    		//add all of the orginal list's elements to the new list
+    		//in order +1 of original index
+    		for (int j = 1; j < size; j++) {
+    			list2[j] = list[j-1];
+    		}
+    		
+    		//then add all elements back to original list
+    		for (int j = 0; j < size; j++) {
+    			list[j] = list2[j];
+    		}
+    		
+    		// if size is equal to length
+    	} else {
+    		
+    		//create a second list to hold the original list (with the same length)
+    		Object[] list2 = new Object[list.length];
+
+    		if (index != 0) {
+    			//go through all the elements and add them to the second list
+        		//until the index to add is reached.
+        		for (int j = 0; j < size; j++) {
+        			list2[j] = list[j];
+        		}
+        		//then add object to the index to add
+        		list2[index] = element;
+        		
+        		//add one to size because the array will have to be
+        		//one larger to acommadate the new addition
+            	size = size + 1;
+        		
+        		//then add all elements back to original list
+        		for (int j = 0; j < size; j++) {
+        			list[j] = list2[j];
+        		}
+        		
+    		} else {
+    			//add element to the beginning of the empty list
+        		list2[index] = element;
+        		
+        		//add one to size because the array will have to be
+        		//one larger to accomedate the new addition
+        		size = size + 1;
+        		
+        		//add all of the orginal list's elements to the new list
+        		//in order +1 of original index
+        		for (int j = 1; j < size; j++) {
+        			list2[j] = list[j-1];
+        		}
+        		
+        		//then add all elements back to original list
+        		for (int j = 0; j < size; j++) {
+        			list[j] = list2[j];
+        		}
+    		}
+    	}
+    	
     }
 
     /**
@@ -165,8 +291,62 @@ public class ArrayList implements List  {
      */
     @Override
     public Object remove(int index) {
-    	Object e = null;
-    	return e;
+    	if (index < 0 || index >= size()) {
+    		throw new IndexOutOfBoundsException ("index is out of range");
+    	}
+    	
+    	//if the index is not zero and less than the size
+    	if (index != 0 && index != size) {
+    		
+			Object ee = new Object();
+    		ee = list[index];
+    		
+    		//create new list to hold
+    		Object[] list2 = new Object[list.length];
+		
+    		//before the index of removal the list is the same
+    		for (int i = 0; i < index; i++) {
+    			list2[i] = list[i];
+    		}
+		
+    		//not sure if size should be one smaller or not here..
+    		for (int i = index; i < size; i++) {
+    			list2[i] = list[i + 1];
+    		}
+		
+    		//	now switch again
+    		for (int i = 0; i < size; i++) {
+    			list[i]=list2[i];
+    		}
+    		list[size - 1] = null;
+    		
+    		size = size - 1;
+    		
+    		return ee;
+    		
+    	//	if the index is zero
+    	} else {
+        	//create new list to hold
+    		Object[] list2 = new Object[list.length];
+    			
+			Object ee = new Object();
+    		ee = list[index];
+    		
+    	//	before the index of removal the list is the same
+   			for (int i = 0; i < size; i++) {
+   				list2[i] = list[i + 1];
+   			}
+   			
+   		//	now switch again
+    		for (int i = 0; i < size; i++) {
+    			list[i]=list2[i];
+    		}
+   			list[size - 1] = null;
+   			
+   			size = size - 1;
+    			
+    		return ee;
+    	}
     }
 
     /**
@@ -181,7 +361,12 @@ public class ArrayList implements List  {
      */
     @Override
     public int indexOf(Object o) {
-    	return 0;
+    	for (int i = 0; i < size(); i++) {
+    		if (list[i].equals(o)) {
+    			return i;
+    		}
+    	}
+    	return -1;
     }
     
 }

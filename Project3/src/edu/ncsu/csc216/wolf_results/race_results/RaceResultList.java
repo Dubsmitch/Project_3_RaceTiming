@@ -24,8 +24,12 @@ public class RaceResultList {
 	 * 		the result to be added to the list
 	 */
 	public void addResult(IndividualResult result) {
-		//todo
+		if (result == null) {
+			throw new IllegalArgumentException();
+		}
+		results.add(result);
 	}
+	
 	/**
 	 * adds a race to the list 
 	 * @param race
@@ -38,7 +42,8 @@ public class RaceResultList {
 	 * 		the time the racer ran
 	 */
 	public void addResult(Race race, String name, int age, RaceTime time) {
-		//make a race
+		IndividualResult a = new IndividualResult (race, name, age, time);
+		results.add(a);
 	}
 	/**
 	 * returns a result at a particular index
@@ -48,7 +53,10 @@ public class RaceResultList {
 	 * 		the returned result
 	 */
 	public IndividualResult getResult (int idx) {
-		return null;
+		if (idx < 0 || idx >= results.size()) {
+			throw new IllegalArgumentException();
+		}
+		return results.get(idx);
 	}
 	
 	/**
@@ -67,7 +75,15 @@ public class RaceResultList {
 	 * 		the array of results
 	 */
 	public String[][] getResultsAsArray(){
-		return null;
+		String [][] resultsArray = new String[results.size()][4];
+		for (int i = 0; i < results.size(); i++) {
+			IndividualResult s = results.get(i);
+			resultsArray[i][0] = s.getName();
+			resultsArray[i][1] = Integer.toString(s.getAge());
+			resultsArray[i][2] = s.getTime().toString();
+			resultsArray[i][2] = s.getPace().toString();
+		}
+		return resultsArray;
 	}
 	/**
 	 * filters the list based on age and time
@@ -83,6 +99,26 @@ public class RaceResultList {
 	 * 		the filtered list of results
 	 */
 	public RaceResultList filter (int minAge, int maxAge, String minPace, String maxPace) {
-		return null;
-	}
+		//get the size of the list
+		//traverse the list looking for all ages within the range
+		//make a new results list in which to store the new datums
+		RaceResultList ageHolder = new RaceResultList();
+		for (int i = 0; i < results.size(); i++) {
+			IndividualResult a = results.get(i);
+			if (a.getAge() >= minAge && a.getAge() <= maxAge) {
+				ageHolder.addResult(a);
+			}
+		}
+		RaceTime minPaces = new RaceTime(minPace);
+		RaceTime maxPaces = new RaceTime(maxPace);
+		RaceResultList bothFilters = new RaceResultList();
+		for (int i = 0; i < ageHolder.size(); i++) {
+			IndividualResult a = results.get(i);
+			if (a.getPace().getSeconds() >= minPaces.getTimeInSeconds() &&
+					a.getPace().getTimeInSeconds() <= maxPaces.getTimeInSeconds()) {
+				bothFilters.addResult(a);
+			}
+		}
+		
+		return bothFilters;	}
 }
