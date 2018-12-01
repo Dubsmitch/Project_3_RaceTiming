@@ -283,6 +283,7 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (head.value.hashCode());
+		result = prime * result + head.next.value.hashCode();
 		result = prime * result + size;
 		return result;
 	}
@@ -294,10 +295,6 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
 		@SuppressWarnings("rawtypes")
 		SortedLinkedList other = (SortedLinkedList) obj;
 		if (!head.equals(other.head))
@@ -346,19 +343,6 @@ public class SortedLinkedList <E extends Comparable <E>> implements SortedList <
 		public Node(Object e, Node next) {
 			this.value = (E) e;
 			this.next = next;
-		}
-
-		/* (non-Javadoc)
-		 * @see java.lang.Object#hashCode()
-		 */
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + getOuterType().hashCode();
-			result = prime * result + ((next == null) ? 0 : next.hashCode());
-			result = prime * result + ((value == null) ? 0 : value.hashCode());
-			return result;
 		}
 
 		/* (non-Javadoc)
